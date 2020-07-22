@@ -7,14 +7,13 @@ import java.util.Random;
 public class Decryption {
 
     public List<int[][]> generateRandomSequenceForChannels(long seed, int rows, int columns){
-        int[][] redMatrixRandomSequence = new int[columns][rows];
-        int[][] greenMatrixRandomSequence = new int[columns][rows];
-        int[][] blueMatrixRandomSequence = new int[columns][rows];
+        int[][] redMatrixRandomSequence = new int[rows][columns];
+        int[][] greenMatrixRandomSequence = new int[rows][columns];
+        int[][] blueMatrixRandomSequence = new int[rows][columns];
         Random random=new Random();
         random.setSeed(seed);
-        int maxFrom=(rows>columns)?rows:columns;
-        for(int i=0;i<columns;i++){
-            for(int j=0;j<rows;j++){
+        for(int i=0;i<rows;i++){
+            for(int j=0;j<columns;j++){
                 redMatrixRandomSequence[i][j]=random.nextInt(3);
                 greenMatrixRandomSequence[i][j]=random.nextInt(4);
                 blueMatrixRandomSequence[i][j]=random.nextInt(5);
@@ -44,46 +43,43 @@ public class Decryption {
         return result;
     }
 
-
     public BufferedImage doDecryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
         BufferedImage inputBufferedImage=bufferedImage;
-        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
         int width=inputBufferedImage.getWidth();
         int height=inputBufferedImage.getHeight();
         int lenghtOfKey=key.size(),counter=0;
-        if(((width*height)%lenghtOfKey)==0){
-            counter=key.size()-1;
-            //System.out.println("in if counter="+counter);
+        for(int i=0;i<height-1;i++) {
+            for (int j = 0; j < width - 1; j++) {
+                if(key.get(counter)==1){//vertical
+                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+                        int aux = inputBufferedImage.getRGB(j,0);
+                        for(int z=0;z<height-1;z++){
+                            inputBufferedImage.setRGB(j,z,inputBufferedImage.getRGB(j,z+1));
+                        }
+                        inputBufferedImage.setRGB(j,height-1,aux);
+                    }
+                }
+                counter++;
+                if(counter>=lenghtOfKey){
+                    counter=0;
+                }
+            }
         }
-        else {
-            counter=((width*height)%lenghtOfKey)-1;
-            //System.out.println("in else counter="+counter+" ((width*height)%lenghtOfKey)="+((lenghtOfKey)));
-        }
-        for(int i=width-1;i>=0;i--){
-            for(int j=height-1;j>=0;j--){
-                //System.out.println("counter="+counter);
+        counter=0;
+        for(int i=0;i<height-1;i++){
+            for(int j=0;j<width-1;j++){
                 if(key.get(counter)==0){//orizontal
                     for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
-                        //System.out.println("i="+i+" width="+(width-1));
-                        int aux = inputBufferedImage.getRGB(i,0);
+                        int aux = inputBufferedImage.getRGB(0,i);
                         for (int z = 0; z < width-1; z++) {
-                            inputBufferedImage.setRGB(i, z, inputBufferedImage.getRGB(i,z+1));
+                            inputBufferedImage.setRGB(z, i, inputBufferedImage.getRGB(z+1,i));
                         }
-                        inputBufferedImage.setRGB(i, width-1, aux);
+                        inputBufferedImage.setRGB( width-1,i, aux);
                     }
                 }
-                else if(key.get(counter)==1){//vertical
-                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
-                        int aux = inputBufferedImage.getRGB(0,j);
-                        for(int z=0;z<height-1;z++){
-                            inputBufferedImage.setRGB(z,j,inputBufferedImage.getRGB(z+1,j));
-                        }
-                        inputBufferedImage.setRGB(width-1,j,aux);
-                    }
-                }
-                counter--;
-                if(counter==0){
-                    counter=key.size()-1;
+                counter++;
+                if(counter>=lenghtOfKey){
+                    counter=0;
                 }
 
             }
@@ -92,14 +88,74 @@ public class Decryption {
     }
 
 
+
+
 //    public BufferedImage doDecryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
 //        BufferedImage inputBufferedImage=bufferedImage;
 //        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
 //        int width=inputBufferedImage.getWidth();
 //        int height=inputBufferedImage.getHeight();
 //        int lenghtOfKey=key.size(),counter=0;
-//        for(int i=0;i<width-1;i++){
-//            for(int j=0;j<height-1;j++){
+//        if(((width*height)%lenghtOfKey)==0){
+//            counter=key.size()-1;
+//            //System.out.println("in if counter="+counter);
+//        }
+//        else {
+//            counter=((width*height)%lenghtOfKey)-1;
+//            //System.out.println("in else counter="+counter+" ((width*height)%lenghtOfKey)="+((lenghtOfKey)));
+//        }
+//        for(int i=height-1;i>=0;i--){
+//            for(int j=width-1;j>=0;j--){
+//                //System.out.println("counter="+counter);
+//                if(key.get(counter)==0){//orizontal
+//                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+//                        //System.out.println("i="+i+" width="+(width-1));
+//                        int aux = inputBufferedImage.getRGB(0,i);
+//                        for (int z = 0; z < width-1; z++) {
+//                            inputBufferedImage.setRGB(z,i, inputBufferedImage.getRGB(z+1,i));
+//                        }
+//                        inputBufferedImage.setRGB(width-1,i, aux);
+//                    }
+//                }
+////                else if(key.get(counter)==1){//vertical
+////                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+////                        int aux = inputBufferedImage.getRGB(j,0);
+////                        for(int z=0;z<height-1;z++){
+////                            inputBufferedImage.setRGB(j,z,inputBufferedImage.getRGB(j,z+1));
+////                        }
+////                        inputBufferedImage.setRGB(j,height-1,aux);
+////                    }
+////                }
+//                counter--;
+//                if(counter==0){
+//                    counter=key.size()-1;
+//                }
+//
+//            }
+//        }
+//        return inputBufferedImage;
+//    }
+
+
+
+
+//    public BufferedImage doDecryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
+//        BufferedImage inputBufferedImage=bufferedImage;
+//        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
+//        int width=inputBufferedImage.getWidth();
+//        int height=inputBufferedImage.getHeight();
+//        int lenghtOfKey=key.size(),counter=0;
+//        if(((width*height)%lenghtOfKey)==0){
+//            counter=key.size()-1;
+//            //System.out.println("in if counter="+counter);
+//        }
+//        else {
+//            counter=((width*height)%lenghtOfKey)-1;
+//            //System.out.println("in else counter="+counter+" ((width*height)%lenghtOfKey)="+((lenghtOfKey)));
+//        }
+//        for(int i=width-1;i>=0;i--){
+//            for(int j=height-1;j>=0;j--){
+//                //System.out.println("counter="+counter);
 //                if(key.get(counter)==0){//orizontal
 //                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
 //                        //System.out.println("i="+i+" width="+(width-1));
@@ -119,8 +175,121 @@ public class Decryption {
 //                        inputBufferedImage.setRGB(width-1,j,aux);
 //                    }
 //                }
+//                counter--;
+//                if(counter==0){
+//                    counter=key.size()-1;
+//                }
+//
+//            }
+//        }
+//        return inputBufferedImage;
+//    }
+
+
+//    //metoda asta merge pt un tip de criptare orizontal/vertical
+//    public BufferedImage doDecryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
+//        BufferedImage inputBufferedImage=bufferedImage;
+//        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
+//        int width=inputBufferedImage.getWidth();
+//        int height=inputBufferedImage.getHeight();
+//        int lenghtOfKey=key.size(),counter=0;
+//        for(int i=0;i<height-1;i++){
+//            for(int j=0;j<width-1;j++){
+//                if(key.get(counter)==0){//orizontal
+//                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+//                        //System.out.println("i="+i+" width="+(width-1));
+//                        int aux = inputBufferedImage.getRGB(0,i);
+//                        for (int z = 0; z < width-1; z++) {
+//                            inputBufferedImage.setRGB(z, i, inputBufferedImage.getRGB(z+1,i));
+//                        }
+//                        inputBufferedImage.setRGB( width-1,i, aux);
+//                    }
+//                }
+////                else if(key.get(counter)==1){//vertical
+////                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+////                        int aux = inputBufferedImage.getRGB(j,0);
+////                        for(int z=0;z<height-1;z++){
+////                            inputBufferedImage.setRGB(j,z,inputBufferedImage.getRGB(j,z+1));
+////                        }
+////                        inputBufferedImage.setRGB(j,height-1,aux);
+////                    }
+////                }
 //                counter++;
-//                if(counter==lenghtOfKey-1){
+//                if(counter>=lenghtOfKey){
+//                    counter=0;
+//                }
+//
+//            }
+//        }
+//        return inputBufferedImage;
+//    }
+
+//    public BufferedImage doDecryptionVertical(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
+//        BufferedImage inputBufferedImage=bufferedImage;
+//        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
+//        int width=inputBufferedImage.getWidth();
+//        int height=inputBufferedImage.getHeight();
+//        int lenghtOfKey=key.size(),counter=0;
+//        for(int i=0;i<height-1;i++){
+//            for(int j=0;j<width-1;j++){
+////                if(key.get(counter)==0){//orizontal
+////                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+////                        //System.out.println("i="+i+" width="+(width-1));
+////                        int aux = inputBufferedImage.getRGB(0,i);
+////                        for (int z = 0; z < width-1; z++) {
+////                            inputBufferedImage.setRGB(z, i, inputBufferedImage.getRGB(z+1,i));
+////                        }
+////                        inputBufferedImage.setRGB( width-1,i, aux);
+////                    }
+////                }
+//                 if(key.get(counter)==1){//vertical
+//                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+//                        int aux = inputBufferedImage.getRGB(j,0);
+//                        for(int z=0;z<height-1;z++){
+//                            inputBufferedImage.setRGB(j,z,inputBufferedImage.getRGB(j,z+1));
+//                        }
+//                        inputBufferedImage.setRGB(j,height-1,aux);
+//                    }
+//                }
+//                counter++;
+//                if(counter>=lenghtOfKey){
+//                    counter=0;
+//                }
+//
+//            }
+//        }
+//        return inputBufferedImage;
+//    }
+
+//    public BufferedImage doDecryptionVertical(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) throws IOException {
+//        BufferedImage inputBufferedImage=bufferedImage;
+//        //viewImage.displayImage(inputBufferedImage,"din criptare",inputBufferedImage.getWidth(),inputBufferedImage.getHeight());
+//        int width=inputBufferedImage.getWidth();
+//        int height=inputBufferedImage.getHeight();
+//        int lenghtOfKey=key.size(),counter=0;
+//        for(int i=0;i<height-1;i++){
+//            for(int j=0;j<width-1;j++){
+//                if(key.get(counter)==0){//orizontal
+//                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+//                        //System.out.println("i="+i+" width="+(width-1));
+//                        int aux = inputBufferedImage.getRGB(0,i);
+//                        for (int z = 0; z < width-1; z++) {
+//                            inputBufferedImage.setRGB(z, i, inputBufferedImage.getRGB(z+1,i));
+//                        }
+//                        inputBufferedImage.setRGB( width-1,i, aux);
+//                    }
+//                }
+//                else if(key.get(counter)==1){//vertical
+//                    for(int randomMatrixVal=0;randomMatrixVal<=shiftValueMatrix[i][j];randomMatrixVal++) {
+//                        int aux = inputBufferedImage.getRGB(j,0);
+//                        for(int z=0;z<height-1;z++){
+//                            inputBufferedImage.setRGB(j,z,inputBufferedImage.getRGB(j,z+1));
+//                        }
+//                        inputBufferedImage.setRGB(j,height-1,aux);
+//                    }
+//                }
+//                counter++;
+//                if(counter>=lenghtOfKey){
 //                    counter=0;
 //                }
 //
