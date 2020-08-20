@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class ViewImage {
-    public void displayImage(BufferedImage img, String title, int width, int height) throws IOException
+    public void displayImage(BufferedImage img, String title, int width, int height)
     {
         ImageIcon icon=new ImageIcon(img);
         JFrame frame=new JFrame(title);

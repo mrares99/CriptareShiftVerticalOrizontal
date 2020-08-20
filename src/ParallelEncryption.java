@@ -4,18 +4,14 @@ import java.util.List;
 
 public class ParallelEncryption extends Thread{
     private BufferedImage colorChannel;
-    private String key;
-    private long seed;
-    private Thread thread;
-    private Encryption encryption;
+    private final Encryption encryption;
     private static List<BufferedImage> outputEncryptedImageList;
     private int[][] shiftValueMatrix;
     private List<Integer> keyList;
 
     public ParallelEncryption(){
-        this.thread=new Thread();
         this.encryption=new Encryption();
-        outputEncryptedImageList=new ArrayList<BufferedImage>();
+        outputEncryptedImageList=new ArrayList<>();
     }
 
     public void run(){
@@ -33,14 +29,6 @@ public class ParallelEncryption extends Thread{
 
     public synchronized void addEncryptedImageInList(BufferedImage bufferedImage){
         outputEncryptedImageList.add(bufferedImage);
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
-
-    public void setSeed(long seed) {
-        this.seed = seed;
     }
 
     public void setColorChannel(BufferedImage colorChannel) {
