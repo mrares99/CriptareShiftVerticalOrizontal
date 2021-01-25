@@ -1,9 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class ViewImage {
+
+    /** Afiseaza o imagine.
+     * @param img Imaginea pentru afisare.
+     * @param title Titlul ferestrei care contine imaginea.
+     * @param width Latimea imaginii.
+     * @param height Inaltimea imaginii.
+     */
     public void displayImage(BufferedImage img, String title, int width, int height)
     {
         ImageIcon icon=new ImageIcon(img);

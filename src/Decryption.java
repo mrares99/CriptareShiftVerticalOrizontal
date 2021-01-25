@@ -6,6 +6,13 @@ import java.util.List;
 
 public class Decryption {
 
+    /** Genereaza o secventa aleatoare pentru toate cele trei canale de culoare.
+     * @param seed Valoarea care va fi folosita pentru a genera numerele pseudoaleatoare.
+     * @param rows Numarul de randuri din imagine.
+     * @param columns Numarul de coloane din imagine.
+     * @return Lista de matrici care contin secvente aleatoare.
+     * @throws NoSuchAlgorithmException
+     */
     public List<int[][]> generateRandomSequenceForChannels(long seed, int rows, int columns) throws NoSuchAlgorithmException {
         int[][] redMatrixRandomSequence = new int[rows][columns];
         int[][] greenMatrixRandomSequence = new int[rows][columns];
@@ -26,6 +33,10 @@ public class Decryption {
         return list2d;
     }
 
+    /** Extrage bitii dintr-un sir de biti si ii adauga intr-o lista.
+     * @param inputString Sir de caractere formate din '0' si '1'.
+     * @return Lista care contine bitii caracterelor din sir.
+     */
     public List<Integer> extractBitsFromString(String inputString){
         List<Integer> outputBitList=new ArrayList<>();
         String bitRepresentation=getBitRepresentationFromString(inputString);
@@ -35,6 +46,10 @@ public class Decryption {
         return outputBitList;
     }
 
+    /** Extrage bitii dintr-un sir de caractere si ii adauga intr-un sir.
+     * @param inputString Sirul de caractere.
+     * @return String de valori de '0' si '1'.
+     */
     public String getBitRepresentationFromString(String inputString){
         StringBuilder  result=new StringBuilder();
         for(int i=-1;++i<inputString.length();){
@@ -43,6 +58,12 @@ public class Decryption {
         return String.valueOf(result);
     }
 
+    /** Efectueaza decriptarea.
+     * @param bufferedImage Imaginea care se doreste a fi decriptata.
+     * @param shiftValueMatrix Matrice de valori aleatoare pentru rotiri.
+     * @param key Lista de valori de '0' si '1' necesare pentru rotirea pe verticala sau orizontala.
+     * @return Imaginea decriptata.
+     */
     public BufferedImage doDecryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) {
         int width=bufferedImage.getWidth();
         int height=bufferedImage.getHeight();

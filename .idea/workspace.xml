@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CriptareShiftVerticalOrizontal:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="a0b9e573-59a2-4043-85fa-5af1cff78868" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmallSquares.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TimpRulare.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TimpRulare.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Decryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Decryption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Encryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Encryption.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ImageOperations.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ImageOperations.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ParallelDecryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ParallelDecryption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ParallelEncryption.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ParallelEncryption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ViewImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CriptareShiftVerticalOrizontal/ViewImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Decryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Decryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encryption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ImageOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageOperations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParallelDecryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParallelDecryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParallelEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParallelEncryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewImage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +52,13 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="CriptareShiftVerticalOrizontal" />
@@ -45,9 +66,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CriptareShiftVerticalOrizontal.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/CriptareShiftVerticalOrizontal_jar/CriptareShiftVerticalOrizontal.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.CriptareShiftVerticalOrizontal.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -66,50 +92,43 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="612" y="169" key="#com.intellij.ide.util.MemberChooser" timestamp="1596635081871">
+    <state x="499" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1607533086734">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="612" y="169" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1596635081871" />
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595431808475" />
-    <state x="1170" y="270" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1594980163484">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1170" y="270" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594980163484" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1599029384054">
+    <state x="499" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1607533086734" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1607532353472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599029384054" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596039210384" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1599029384054">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607532353472" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1607532353472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599029384054" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596039210384" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1599029384054">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607532353472" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1607532353472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599029384054" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596039210384" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1599029384054">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607532353472" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1607532353472">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599029384054" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596039210384" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1595000954002">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607532353472" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1607533096739">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595000954002" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1595000954002">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607533096739" />
+    <state x="308" y="148" width="919" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1604929541178">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595000954002" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1595000954002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595000954002" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1595000954002">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595000954002" />
+    <state x="308" y="148" width="919" height="629" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1604929541178" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

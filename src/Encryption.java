@@ -6,6 +6,13 @@ import java.util.List;
 
 public class Encryption {
 
+    /** Genereaza secvente aleatoare pentru cele trei canale de culoare.
+     * @param seed Valoare pe baza careia se va efectua generarea de numere pseudoaleatoare.
+     * @param rows Numarul de linii al imaginii.
+     * @param columns Numarul de coloane al imaginii.
+     * @return Lista de matrici care contin secvente aleatoaere.
+     * @throws NoSuchAlgorithmException
+     */
     public List<int[][]> generateRandomSequenceForChannels(long seed, int rows, int columns) throws NoSuchAlgorithmException {
         int[][] redMatrixRandomSequence = new int[rows][columns];
         int[][] greenMatrixRandomSequence = new int[rows][columns];
@@ -26,6 +33,10 @@ public class Encryption {
         return list2d;
     }
 
+    /** Extrage bitii dintr-un string si ii plaseaza intr-o lista.
+     * @param inputString Sirul de valori '0' si '1'.
+     * @return Lista de biti.
+     */
     public List<Integer> extractBitsFromString(String inputString){
         List<Integer> outputBitList=new ArrayList<>();
         String bitRepresentation=getBitRepresentationFromString(inputString);
@@ -35,6 +46,10 @@ public class Encryption {
         return outputBitList;
     }
 
+    /** Extrage bitii dintr-un sir de caractere aleatoare si ii plaseaza in alt sir.
+     * @param inputString Sirul de caractere aleatoare.
+     * @return Sir de valori '0' si '1'.
+     */
     public String getBitRepresentationFromString(String inputString){
         StringBuilder  result=new StringBuilder();
         for(int i=-1;++i<inputString.length();){
@@ -43,6 +58,12 @@ public class Encryption {
         return String.valueOf(result);
     }
 
+    /** Efectueaza criptarea.
+     * @param bufferedImage Imaginea care se doreste a fi criptata.
+     * @param shiftValueMatrix Matrice de valori aleatoare.
+     * @param key Lista de valori '0' si '1' necesare pentru directia verticala sau orizontala.
+     * @return Imaginea criptata.
+     */
     public BufferedImage doEncryption(BufferedImage bufferedImage, int[][] shiftValueMatrix, List<Integer> key) {
         int width=bufferedImage.getWidth();
         int height=bufferedImage.getHeight();

@@ -8,6 +8,9 @@ import java.util.List;
 
 public class ImageOperations {
 
+    /** Citeste o imagine.
+     * @return Imaginea citita.
+     */
     public BufferedImage readImage() {
         JFileChooser chooser = new JFileChooser();
         chooser.setCurrentDirectory(new java.io.File("."));
@@ -28,6 +31,10 @@ public class ImageOperations {
         return image;
     }
 
+    /** Extrage canalele de culoare din imagine.
+     * @param bufferedImage Imaginea originala.
+     * @return Lista continand cele trei canale de culoare.
+     */
     public List<BufferedImage> extractColorChannels(BufferedImage bufferedImage) {
         List<BufferedImage> bufferedImageList=new ArrayList<>();
         int width=bufferedImage.getWidth(),height=bufferedImage.getHeight();
@@ -47,6 +54,12 @@ public class ImageOperations {
         return bufferedImageList;
     }
 
+    /** Construieste o imagine din cele trei canale de culoare.
+     * @param firstImage Prima imagine.
+     * @param secondImage A doua imagine.
+     * @param thirdImage A treia imagine.
+     * @return Imagine, reprezentand combinatia celor trei culori.
+     */
     public BufferedImage constructImageFromRGBChannels(BufferedImage firstImage, BufferedImage secondImage, BufferedImage thirdImage){
         int width=firstImage.getWidth(),height=firstImage.getHeight();
         BufferedImage outputImage=new BufferedImage(width, height,BufferedImage.TYPE_INT_RGB);
